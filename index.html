@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Vue</title>
+	<script src="vue.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3971147500929569",
+          enable_page_level_ads: true
+     });
+</script>
+</head>
+<body>
+	<div id="root">
+		<!-- START Tombol Conter-->
+		<button v-on:click="counter += 1 ">Tambah 1</button>
+		<p>Sekarang Counter ke : {{ counter }}</p><br>
+		<!-- END Tombol Conter-->
+
+		<!-- START Input text Autoshow-->
+		<input type="text" v-model.trim="aa">
+		<p>{{ aa }}</p>
+		<!-- END Tombol Conter-->
+		<!-- START Checkbox-->
+		  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+		  <label for="jack">Jack</label>
+		  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+		  <label for="john">John</label>
+		  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+		  <label for="mike">Mike</label><br>
+		  <span>Checked names: {{ checkedNames }}</span><br>
+		<!-- END chekbox-->
+		  <br>
+		
+		<!-- START Radio--> 
+		  <input type="radio" name="radios" value="radio1" id="radio1" v-model="radios">
+		  <label for="radio1">Radio1</label>
+		  <input type="radio" name="radios" value="radio2" id="radio2" v-model="radios">
+		  <label for="radio2">Radio2</label>
+		  <input type="radio" name="radios" value="radio3" id="radio3" v-model="radios">
+		  <label for="radio3">Radio3</label>
+		  <br>
+		  <p>{{radios}}</p>
+		<!-- END Radio-->
+		
+		<!-- START Drop down-->
+		  <select v-model="selek">
+		  	<option value="">--Pilih Data--</option>
+		  	<option value="Value1">Value1</option>
+		  	<option value="Value2">Value2</option>
+		  	<option value="Value3">Value3</option>
+		  </select>
+		  <p>Pilihan Dropdown adalah : {{ selek }}</p><br>
+		<!-- END Drop down-->
+
+
+
+		<!-- START Drop down 3-->
+		  	<select v-model="dropdown_lain">
+		  		<option v-for="option in options"  v-bind:value="option.value">
+		  			{{option.text}}
+		  		</option>
+		  	</select>
+		  	<p>{{dropdown_lain}}</p>
+		<!-- START Drop down 3-->
+		<br>
+		<a href="" v-on:click.stop.prevent="doThis">aaa</a>
+		<br>
+		<komponen pesan="arwana_citra"></komponen>
+
+		
+
+	</div>
+	<template id="post-template">
+			<div>
+				<ul>
+					<li>tes1</li>
+					<li>tes2</li>
+					<li>{{pesan}}</li>
+				</ul>
+			</div>
+		</template>
+  <script>
+  	Vue.component('komponen',{
+  		template:'#post-template',
+  		props:['pesan']
+  	})
+
+  	new Vue({
+  		el:"#root",
+  		data:{
+  			nama:"Hello World",
+  			counter:0,
+  			aa:"",
+  			checkedNames: [],
+  			selek:"",
+  			selek2:"",
+  			dropdown_lain:"A",
+  			options:[
+  				{text:'A',value:'A'},
+  				{text:'B',value:'B'},
+  				{text:'C',value:'C'},
+  			],
+  			radios:"",
+  		},
+  		methods:{
+  			doThis : function(){
+  				alert('hallo')
+  			}
+  		}
+  	})
+  </script>
+</body>
+</html>
