@@ -1,0 +1,7 @@
+$limit="limit ".hitung_po();
+    $sql_bpb="Select a.bpb_kode,item_kode,diterima from tbl_penerimaan_barang a inner join item_penerimaan_barang b on a.bpb_kode=b.bpb_kode where porder_kode='PLK/1/18/00338' and a.bpb_kode not IN (select bpb_kode from tbl_return where bpb_kode=a.bpb_kode) group by a.bpb_kode,item_kode,diterima $limit";
+    echo $sql_bpb
+    $res_bpb=dbresult($sql_bpb);
+    while($row_bpb=pg_num_rows($res_bpb)){
+    	$qty_bpb[$row_bpb['item_kode']][$kode]=$row_bpb['qty'];
+    }
