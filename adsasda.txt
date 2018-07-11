@@ -4,4 +4,4 @@ $limit="limit ".hitung_po();
     $res_bpb=dbresult($sql_bpb);
     while($row_bpb=pg_num_rows($res_bpb)){
     	$qty_bpb[$row_bpb['item_kode']][$kode]=$row_bpb['qty'];
-    }
+    }asasasasasas
